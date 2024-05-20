@@ -18,7 +18,7 @@ class VOXLoader extends Loader {
 	load( url, onLoad, onProgress, onError ) {
 
 		const scope = this;
-
+			
 		const loader = new FileLoader( scope.manager );
 		loader.setPath( scope.path );
 		loader.setResponseType( 'arraybuffer' );
@@ -52,7 +52,8 @@ class VOXLoader extends Loader {
 	parse( buffer ) {
 
 		const data = new DataView( buffer );
-
+		console.log(data.byteLength)
+		
 		const id = data.getUint32( 0, true );
 		const version = data.getUint32( 4, true );
 
